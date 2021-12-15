@@ -6,13 +6,10 @@ sed -i 's|video_shader_dir = /usr/share/libretro/shaders|video_shader_dir = ~/.c
 
 sed -i 's|libretro_directory = /usr/lib/libretro|libretro_directory = ~/.config/retroarch/cores|g' /etc/retroarch.cfg
 
-sed -i 's|# menu_driver = "rgui"|menu_driver = "xmb"|g' /etc/retroarch.cfg
-
-
-# menu_driver = "rgui"
-
 # add script to run retroarch
-echo '# link to slang shaders
+echo '#!/bin/bash
+
+# link to slang shaders
 ln -sf /usr/share/libretro/shaders/shaders_slang ~/.config/retroarch/shaders/shaders_slang
 
 # Remove broken symlinks
