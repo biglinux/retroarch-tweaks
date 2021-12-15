@@ -1,0 +1,9 @@
+[Trigger]
+Type = Package
+Operation = Remove
+Target = retroarch
+
+[Action]
+Description = Tweaks to retroarch
+When = PreTransaction
+Exec = /usr/share/libalpm/scripts/biglinux-retroarch-remove

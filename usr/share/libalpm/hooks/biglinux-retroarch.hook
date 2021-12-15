@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = retroarch
+
+[Action]
+Description = Tweaks to retroarch
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/biglinux-retroarch

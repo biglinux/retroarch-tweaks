@@ -1,0 +1,22 @@
+#!/bin/bash
+
+sed -i 's|menu_show_core_updater = false|menu_show_core_updater = true|g' /etc/retroarch.cfg
+
+sed -i 's|video_shader_dir = /usr/share/libretro/shaders|video_shader_dir = ~/.config/retroarch/shaders|g' /etc/retroarch.cfg
+
+sed -i 's|libretro_directory = /usr/lib/libretro|libretro_directory = ~/.config/retroarch/cores|g' /etc/retroarch.cfg
+
+# add script to run retroarch
+echo '# link to slang shaders
+ln -sf /usr/share/libretro/shaders/shaders_slang ~/.config/retroarch/shaders/shaders_slang
+
+# Remove broken symlinks
+find -L ~/.config/retroarch/cores/ -maxdepth 1 -type l -delete
+
+# Make symlinks
+ln -s /usr/lib/libretro/* ~/.config/retroarch/cores/
+
+
+exec /usr/bin/retroarch ${1+"$@"}' > /usr/local/bin/retroarch
+
+chmod +x /usr/local/bin/retroarch
