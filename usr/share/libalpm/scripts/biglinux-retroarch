@@ -9,6 +9,8 @@ sed -i 's|libretro_directory = /usr/lib/libretro|libretro_directory = ~/.config/
 # add script to run retroarch
 echo '#!/bin/bash
 
+mkdir -p ~/.config/retroarch
+
 # link to slang shaders
 ln -sf /usr/share/libretro/shaders/shaders_slang ~/.config/retroarch/shaders/shaders_slang
 
